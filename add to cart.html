@@ -1,0 +1,41 @@
+
+
+Mobile -<input type="button" value="addToCart" onclick="add('Mobile')">
+
+Laptop -<input type="button" value="addToCart" onclick="add('Laptop')">
+
+Tablet -<input type="button" value="addToCart" onclick="add('Tablet')">
+
+LED - <input type="button" value="addToCart" onclick="add('LED')">
+
+<div style="background-color: blanchedalmond; width: 200px; height: 150px; padding: 20px; 
+float: right;" id="cart">
+Total Item - <b id="c"></b>
+<ol id="hello"></ol><!--item detail here-->
+
+</div>
+
+<script>
+    var x = 0;
+    document.getElementById("c").innerText=x;
+    function add(val){
+        document.getElementById("hello").innerHTML +="<li>"+val+"<input type='button' value='x' onclick='remove()'></li>";
+        x=x+1;
+        document.getElementById("c").innerText=x;
+    }
+    //removing script//
+function remove(){
+
+    var listItem = document.getElementsByTagName("li");
+    for(var i = 0; i<listItem.length;i++){
+        
+        listItem[i].onclick=function(){
+            this.parentNode.removeChild(this);
+        }
+    }
+    x = x-1;
+    document.getElementById("c").innerText=x;
+}
+    
+</script>
+
